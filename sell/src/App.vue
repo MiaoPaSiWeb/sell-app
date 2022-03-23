@@ -1,14 +1,17 @@
-<template>
-  <div id="app">
-    <img src="./assets/logo.png">
-    <router-view/>
-  </div>
+<template><div id="app">
+  <img src="./assets/logo.png">
+  <router-view />
+</div>
 </template>
 
 <script>
 export default {
   name: 'App'
 }
+
+var z = 0
+z = z + 1
+console.log(z)
 </script>
 
 <style>
