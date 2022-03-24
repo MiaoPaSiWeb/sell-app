@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hello world</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+<body>
+    <div id="root">hellowold</div>
+    
+</body>
+<script>
+    // //字符串内容反转
+    // Vue.createApp({
+    //     data(){
+    //         return {
+    //             content: 'hello world'
+    //         }
+    //     },
+    //     methods:{
+    //         handleBtnClick(){
+    //             this.content = this.content.split('').reverse().join('');
+    //         }
+    //     },
+    //     template: `
+    //     <div>
+    //         {{content}}
+    //         <button v-on:click="handleBtnClick">反转</button>
+    //     </div>
+        
+    //     `
+    // }).mount('#root');
+
+    //内容隐藏与显示
+    Vue.createApp({
+    data(){
+        return {
+            show: true
+        }
+    },
+    methods:{
+        handleBtnClick(){
+            this.show = !this.show;
+        }
+    },
+    template: `
+    <div>
+        <span v-if="show">您是农大生电脑上</span>
+        <button v-on:click="handleBtnClick">显示/隐藏</button>
+    </div>
+        
+        `
+    }).mount('#root');
+</script>
+</html>
