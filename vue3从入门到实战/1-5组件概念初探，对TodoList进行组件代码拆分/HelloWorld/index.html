@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lesson4</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+<body>
+    <div id="root">hellowold</div>
+    
+</body>
+<script>
+    //内容隐藏与显示
+    const app = Vue.createApp({
+    data(){
+        return {
+            inputValue: "",
+            list: []
+        }
+    },
+    methods:{
+        handleBtnClick(){
+            this.list.push(this.inputValue);
+            this.inputValue = "";
+        }
+    },
+    template: `
+    <div>
+        <input v-model="inputValue">
+        <button v-on:click="handleBtnClick">增加</button>
+        <ul>
+            <todo-item
+                v-for="(item,index) in list" 
+                v-bind:content=item
+                v-bind:index=index
+            />
+        </ul>
+    </div>
+        
+        `
+    });
+
+    app.component("todo-item",{
+        props:["content","index"],
+        template: `
+            <li>{{index}} --- {{content}}</li>
+        `
+    });
+
+    //要放在最后
+    app.mount('#root');
+
+
+</script>
+</html>
