@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lesson6</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+<body>
+    <div id="root">hellowold</div>
+    
+</body>
+<script>
+    // vue整个生命周期中的钩子函数
+    const app = Vue.createApp({
+    data(){
+        return {
+            message: "hello world"
+        }
+    },
+    // 组件实例化之前
+    beforeCreated(){
+        console.log("组件实例化之前");
+    },
+    // 组件实例化之后，但页面还未展示
+    created(){
+        console.log("组件实例化之后，但页面还未展示");
+    },
+    // 组件挂载前，页面仍未展示，但虚拟DOM已经配置
+    beforeMount(){
+        console.log("组件挂载前，页面仍未展示，但虚拟DOM已经配置");
+    },
+    // 组件挂载后，此方法执行，页面展示
+    mounted(){
+        console.log("组件挂载后，此方法执行，页面展示");
+    },
+    // 数据更新时调用，发生在虚拟 DOM 重新渲染和打补丁之前
+    beforeUpdate(){
+        console.log("数据更新时调用，发生在虚拟 DOM 重新渲染和打补丁之前");
+    },
+    // 由于数据更改导致的虚拟 DOM 重新渲染和打补丁，在这之后会调用该钩子。
+    updated(){
+        console.log("由于数据更改导致的虚拟 DOM 重新渲染和打补丁，在这之后会调用该钩子。");
+    },
+    // 实例销毁之前调用。在这一步，实例仍然完全可用。
+    beforeDestroy(){
+        console.log("实例销毁之前调用。在这一步，实例仍然完全可用。");
+    },
+    // Vue 实例销毁后调用。调用后，Vue 实例指示的所有东西都会解绑定，所有的事件监听器会被移除，所有的子实例也会被销毁。
+    destroyed(){
+        console.log("Vue 实例销毁后调用。调用后，Vue 实例指示的所有东西都会解绑定，所有的事件监听器会被移除，所有的子实例也会被销毁。");
+    },
+
+    template: `
+    <div>
+        {{message}}
+    </div>
+        `
+    });
+
+    // vm代表是Vue 应用的根组件
+    const vm = app.mount('#root');
+
+
+</script>
+</html>
